@@ -13,7 +13,7 @@ RUN set -ex; \
 	rm -rf /var/lib/apt/lists/*; \
 	\
 	docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr; \
-	docker-php-ext-install gd mbstring opcache pdo_mysql json; \
+	docker-php-ext-install gd mbstring opcache pdo_mysql json zip; \
     pecl install -o -f xdebug redis mcrypt\
         && rm -rf /tmp/pear \
         && docker-php-ext-enable xdebug redis mcrypt;
