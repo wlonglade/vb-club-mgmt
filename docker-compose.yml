@@ -37,6 +37,7 @@ services:
             - ./src/:/usr/local/apache2/htdocs
             - ./docker/php/ssmtp.conf:/etc/ssmtp/ssmtp.conf:ro
             - ./docker/php/php-mail.conf:/usr/local/etc/php/conf.d/mail.ini:ro
+            - ./docker/php/opcache-blacklist.txt:/usr/local/etc/php/opcache-blacklist.txt:ro
 
 ###########################
 # Setup the Database (MySQL) container
