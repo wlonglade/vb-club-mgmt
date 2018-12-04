@@ -17,4 +17,14 @@ return [
         'enable_short_array' => true,
         'class_name_scalars' => true,
     ],
+    'db' => [
+        'adapters' => [
+            'vbclub_mysql' => [
+                'driver' => 'Pdo_Mysql',
+                'dsn'    => 'mysql:dbname=vb_club_mgmt;host=vbclub_mysql;charset=utf8',
+                'username' => 'vb_club_mgmt',
+                'password' => 'password',
+                ],
+        ],
+    ],
 ];
