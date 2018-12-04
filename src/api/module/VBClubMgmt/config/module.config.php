@@ -2,7 +2,7 @@
 return [
     'hydrators' => [
         'invokables' => [
-            'Project\\Hydrator\\ClassMethods\\CamelCase' => 'Project\\Hydrator\\ClassMethods\\CamelCase',
+            \Project\Hydrator\ClassMethods\CamelCase::class => \Project\Hydrator\ClassMethods\CamelCase::class,
         ],
     ],
     'router' => [
@@ -71,7 +71,7 @@ return [
                 'entity_identifier_name' => 'contactId',
                 'route_name' => 'vb-club-mgmt.rest.contact',
                 'route_identifier_name' => 'contact_id',
-                'hydrator' => 'Project\\Hydrator\\ClassMethods\\CamelCase',
+                'hydrator' => \Project\Hydrator\ClassMethods\CamelCase::class,
             ],
             \VBClubMgmt\V1\Rest\Contact\ContactCollection::class => [
                 'entity_identifier_name' => 'contactId',
@@ -95,8 +95,23 @@ return [
         ],
     ],
     'zf-content-validation' => [
+        'VBClubMgmt\\V1\\Rest\\Contact\\Controller' => [
+            'input_filter' => 'VBClubMgmt\\V1\\Rest\\Contact\\Validator',
+        ],
     ],
     'input_filter_specs' => [
-
+        'VBClubMgmt\\V1\\Rest\\Contact\\Validator' => [
+            'data' => [
+                'firstname' => [
+                    'name' => 'firstname',
+                    'required' => true,
+                ],
+                'lastname' => [
+                    'name' => 'lastname',
+                    'required' => true,
+                ],
+                'type' => \Zend\InputFilter\InputFilter::class,
+            ],
+        ],
     ],
 ];

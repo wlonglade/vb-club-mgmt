@@ -14,6 +14,7 @@ class CamelCaseDbConnectedResource extends DbConnectedResource
         $namingStrategy = new UnderscoreNamingStrategy();
         $extractedData = [];
         foreach ($data as $property => $value) {
+            $value = \is_array($value) ? \json_encode($value) : $value;
             $extractedData[$namingStrategy->extract($property)] = $value;
         }
 

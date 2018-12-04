@@ -53,12 +53,16 @@ class ContactEntity implements ContactEntityInterface
     }
 
     /**
-     * @param array $data
+     * @param array|string $data
      *
      * @return ContactEntity
      */
     public function setData($data)
     {
+        if (! is_array($data)) {
+            $data = \json_decode($data);
+        }
+
         $this->data = $data;
 
         return $this;
