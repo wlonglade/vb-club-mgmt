@@ -3,30 +3,20 @@
 namespace Project\Hydrator\ClassMethods;
 
 use Zend\Hydrator\ClassMethods;
-use Zend\Hydrator\NamingStrategy\UnderscoreNamingStrategy;
 
 class CamelCase extends ClassMethods
 {
     /**
+     * Disable Naming strategy in order to extract camelCased data
      * @inheritdoc
      */
-    public function __construct($underscoreSeparatedKeys = false, $methodExistsCheck = false)
+    public function extract($object)
     {
-        parent::__construct($underscoreSeparatedKeys, $methodExistsCheck);
-    }
+        $namingStrategy = $this->getNamingStrategy();
+        $this->removeNamingStrategy();
+        $extract = parent::extract($object);
+        $this->setNamingStrategy($namingStrategy);
 
-    /**
-     * Convert DB data to camelCase before hydrating
-     * @inheritdoc
-     */
-    public function hydrate(array $data, $object)
-    {
-        $namingStrategy = new UnderscoreNamingStrategy();
-        $hydratedData = [];
-        foreach ($data as $property => $value) {
-            $hydratedData[$namingStrategy->hydrate($property)] = $value;
-        }
-
-        return parent::hydrate($hydratedData, $object);
+        return $extract;
     }
 }
