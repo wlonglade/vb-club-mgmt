@@ -5,7 +5,6 @@ namespace VBClubMgmt\V1\Rest\Api;
 interface ContactEntityInterface
 {
     const ID = 'contact_id';
-    const EMAIL = 'email';
     const DATA = 'data';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -25,7 +24,7 @@ interface ContactEntityInterface
     /**
      * @return array
      */
-    public function getData(): array;
+    public function getData(): ?array;
 
     /**
      * @param array $data
@@ -49,7 +48,7 @@ interface ContactEntityInterface
     /**
      * @return string
      */
-    public function getUpdatedAt(): string;
+    public function getUpdatedAt(): ?string;
 
     /**
      * @param string $updatedAt

@@ -45,7 +45,7 @@ class ContactEntity implements ContactEntityInterface
     /**
      * @inheritdoc
      */
-    public function getData(): array
+    public function getData(): ?array
     {
         return $this->data;
     }
@@ -81,7 +81,7 @@ class ContactEntity implements ContactEntityInterface
     /**
      * @inheritdoc
      */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->updatedAt;
     }
