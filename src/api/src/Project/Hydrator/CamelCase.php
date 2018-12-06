@@ -1,6 +1,6 @@
 <?php
 
-namespace Project\Hydrator\ClassMethods;
+namespace Project\Hydrator;
 
 use Zend\Hydrator\ClassMethods;
 

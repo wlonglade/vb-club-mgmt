@@ -2,7 +2,7 @@
 return [
     'hydrators' => [
         'invokables' => [
-            \Project\Hydrator\ClassMethods\CamelCase::class => \Project\Hydrator\ClassMethods\CamelCase::class,
+            \Project\Hydrator\CamelCase::class => \Project\Hydrator\CamelCase::class,
         ],
     ],
     'router' => [
@@ -71,7 +71,7 @@ return [
                 'entity_identifier_name' => 'contactId',
                 'route_name' => 'vb-club-mgmt.rest.contact',
                 'route_identifier_name' => 'contact_id',
-                'hydrator' => \Project\Hydrator\ClassMethods\CamelCase::class,
+                'hydrator' => \VBClubMgmt\V1\Rest\Contact\Hydrator\ContactEntity::class,
             ],
             \VBClubMgmt\V1\Rest\Contact\ContactCollection::class => [
                 'entity_identifier_name' => 'contactId',
@@ -86,7 +86,7 @@ return [
             'VBClubMgmt\\V1\\Rest\\Contact\\ContactResource' => [
                 'adapter_name' => 'vbclub_mysql',
                 'table_name' => 'contact',
-                'hydrator_name' => \Project\Hydrator\ClassMethods\CamelCase::class,
+                'hydrator_name' => \VBClubMgmt\V1\Rest\Contact\Hydrator\ContactEntity::class,
                 'controller_service_name' => 'VBClubMgmt\\V1\\Rest\\Contact\\Controller',
                 'entity_identifier_name' => 'contact_id',
                 'table_service' => 'VBClubMgmt\\V1\\Rest\\Contact\\ContactResource\\Table',

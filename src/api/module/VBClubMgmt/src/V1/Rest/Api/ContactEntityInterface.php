@@ -4,15 +4,57 @@ namespace VBClubMgmt\V1\Rest\Api;
 
 interface ContactEntityInterface
 {
-    public function getContactId();
+    const ID = 'contact_id';
+    const EMAIL = 'email';
+    const DATA = 'data';
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
 
-    public function setContactId($contactId);
+    /***
+     * @return int
+     */
+    public function getContactId(): int;
 
-    public function getData();
+    /**
+     * @param int $contactId
+     *
+     * @return \VBClubMgmt\V1\Rest\Api\ContactEntityInterface
+     */
+    public function setContactId($contactId): ContactEntityInterface;
 
-    public function setData($data);
+    /**
+     * @return array
+     */
+    public function getData(): array;
 
-    public function getCreatedAt();
+    /**
+     * @param array $data
+     *
+     * @return \VBClubMgmt\V1\Rest\Api\ContactEntityInterface
+     */
+    public function setData($data): ContactEntityInterface;
 
-    public function getUpdatedAt();
+    /**
+     * @return string
+     */
+    public function getCreatedAt(): string;
+
+    /**
+     * @param string $createdAt
+     *
+     * @return \VBClubMgmt\V1\Rest\Api\ContactEntityInterface
+     */
+    public function setCreatedAt($createdAt): ContactEntityInterface;
+
+    /**
+     * @return string
+     */
+    public function getUpdatedAt(): string;
+
+    /**
+     * @param string $updatedAt
+     *
+     * @return \VBClubMgmt\V1\Rest\Api\ContactEntityInterface
+     */
+    public function setUpdatedAt($updatedAt): ContactEntityInterface;
 }

@@ -25,63 +25,53 @@ class ContactEntity implements ContactEntityInterface
 
 
     /**
-     * @return int
+     * @inheritdoc
      */
-    public function getContactId()
+    public function getContactId(): int
     {
         return $this->contactId;
     }
 
     /**
-     * @param int $contactId
-     *
-     * @return ContactEntity
+     * @inheritdoc
      */
-    public function setContactId($contactId)
+    public function setContactId($contactId): ContactEntityInterface
     {
-        $this->contactId = $contactId;
+        $this->contactId = (int) $contactId;
 
         return $this;
     }
 
     /**
-     * @return array
+     * @inheritdoc
      */
-    public function getData()
+    public function getData(): array
     {
         return $this->data;
     }
 
     /**
-     * @param array|string $data
-     *
-     * @return ContactEntity
+     * @inheritdoc
      */
-    public function setData($data)
+    public function setData($data): ContactEntityInterface
     {
-        if (! is_array($data)) {
-            $data = \json_decode($data);
-        }
-
         $this->data = $data;
 
         return $this;
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
-    public function getCreatedAt()
+    public function getCreatedAt(): string
     {
         return $this->createdAt;
     }
 
     /**
-     * @param string $createdAt
-     *
-     * @return ContactEntity
+     * @inheritdoc
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt($createdAt): ContactEntityInterface
     {
         $this->createdAt = $createdAt;
 
@@ -89,19 +79,17 @@ class ContactEntity implements ContactEntityInterface
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
-    public function getUpdatedAt()
+    public function getUpdatedAt(): string
     {
         return $this->updatedAt;
     }
 
     /**
-     * @param string $updatedAt
-     *
-     * @return ContactEntity
+     * @inheritdoc
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdatedAt($updatedAt): ContactEntityInterface
     {
         $this->updatedAt = $updatedAt;
 
