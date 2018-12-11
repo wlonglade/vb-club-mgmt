@@ -5,9 +5,16 @@ use ZF\Apigility\Provider\ApigilityProviderInterface;
 
 class Module implements ApigilityProviderInterface
 {
+    private $configFactory;
+
+    public function __construct()
+    {
+        $this->configFactory = new \Zend\Config\Factory;
+    }
+
     public function getConfig()
     {
-        return include __DIR__ . '/config/module.config.php';
+        return $this->configFactory::fromFiles(\glob(__DIR__.'/config/*.*'));
     }
 
     public function getAutoloaderConfig()
