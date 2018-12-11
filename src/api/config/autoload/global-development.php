@@ -21,10 +21,10 @@ return [
         'adapters' => [
             'vbclub_mysql' => [
                 'driver' => 'Pdo_Mysql',
-                'dsn'    => 'mysql:dbname=vb_club_mgmt;host=vbclub_mysql;charset=utf8',
+                'dsn' => 'mysql:dbname=vb_club_mgmt;host=vbclub_mysql;charset=utf8',
                 'username' => 'vb_club_mgmt',
                 'password' => 'password',
-                ],
+            ],
         ],
     ],
 ];
